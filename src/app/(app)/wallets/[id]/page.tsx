@@ -233,7 +233,7 @@ export default function WalletDetailPage({ params }: { params: Promise<{ id: str
   // Estado de carga — muestra skeletons mientras se obtienen los datos
   if (isLoading) {
     return (
-      <div className="px-4 pt-12 space-y-4">
+      <div className="px-4 pt-5 space-y-4">
         <Skeleton className="h-8 w-40" />
         <Skeleton className="h-32 rounded-3xl" />
         <Skeleton className="h-12 rounded-2xl" />
@@ -255,7 +255,7 @@ export default function WalletDetailPage({ params }: { params: Promise<{ id: str
   }
 
   return (
-    <div className="px-4 pt-12 pb-4">
+    <div className="px-4 pt-5 pb-4">
       {/* Cabecera con botón atrás y eliminar */}
       <div className="flex items-center gap-3 mb-6">
         <button

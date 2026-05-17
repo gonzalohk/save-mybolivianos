@@ -23,7 +23,7 @@ export default function LoansPage() {
   const currentTotal = activeTab === 'lent' ? totalLentUSD : totalBorrowedUSD
 
   return (
-    <div className="px-4 pt-12 pb-4">
+    <div className="px-4 pt-5 pb-4">
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
         <div>

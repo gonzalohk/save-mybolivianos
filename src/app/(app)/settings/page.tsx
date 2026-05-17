@@ -105,7 +105,7 @@ export default function SettingsPage() {
   const displayName = user?.user_metadata?.full_name ?? user?.email?.split('@')[0] ?? 'Usuario'
 
   return (
-    <div className="px-4 pt-12 pb-4">
+    <div className="px-4 pt-5 pb-4">
       <h1 className="text-2xl font-bold text-white mb-6">Ajustes</h1>
 
       {/* Profile */}

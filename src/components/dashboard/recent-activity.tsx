@@ -82,10 +82,10 @@ export function RecentActivity() {
   }
 
   return (
-    <div className="bg-surface border border-line rounded-2xl overflow-hidden">
-      <div className="px-4 pt-4 pb-2">
-        <h3 className="text-sm font-semibold text-muted">Actividad reciente</h3>
-      </div>
+    <div
+      className="rounded-2xl overflow-hidden"
+      style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+    >
       <div className="px-4">
         {data.map((tx, i) => (
           <TransactionItem key={tx.id} tx={tx} index={i} />

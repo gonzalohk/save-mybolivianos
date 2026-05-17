@@ -13,7 +13,10 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="min-h-screen bg-base flex flex-col">
-      <main className="flex-1 max-w-[430px] w-full mx-auto content-area">
+      <main
+        className="flex-1 max-w-[430px] w-full mx-auto content-area"
+        style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
+      >
         {children}
       </main>
       <div className="max-w-[430px] w-full mx-auto">
