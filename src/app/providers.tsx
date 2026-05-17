@@ -3,14 +3,23 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useState, useEffect } from 'react'
 import { useAuthStore } from '@/stores/auth-store'
+import { useExchangeRateStore } from '@/stores/exchange-rate-store'
 
 function AuthInitializer({ children }: { children: React.ReactNode }) {
   const initialize = useAuthStore((s) => s.initialize)
+  const user = useAuthStore((s) => s.user)
+  const syncFromUser = useExchangeRateStore((s) => s.syncFromUser)
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
     initialize().then(() => setReady(true))
   }, [initialize])
+
+  // Sincroniza el tipo de cambio desde el user metadata al iniciar sesión
+  // o al cambiar de cuenta. Funciona en cualquier dispositivo nuevo.
+  useEffect(() => {
+    syncFromUser(user?.user_metadata?.bob_per_usd)
+  }, [user, syncFromUser])
 
   if (!ready) return null
   return <>{children}</>

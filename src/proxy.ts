@@ -23,7 +23,7 @@ export async function proxy(request: NextRequest) {
     }
   )
 
-  const { data: { user } } = await supabase.auth.getUser()
+  const { data: { session } } = await supabase.auth.getSession()
 
   const pathname = request.nextUrl.pathname
   const isAuthPage = pathname === '/login' || pathname === '/register'
@@ -34,13 +34,13 @@ export async function proxy(request: NextRequest) {
     pathname.startsWith('/icon') ||
     pathname.startsWith('/manifest')
 
-  if (!user && !isAuthPage && !isApiRoute && !isPublicAsset) {
+  if (!session && !isAuthPage && !isApiRoute && !isPublicAsset) {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
     return NextResponse.redirect(url)
   }
 
-  if (user && isAuthPage) {
+  if (session && isAuthPage) {
     const url = request.nextUrl.clone()
     url.pathname = '/'
     return NextResponse.redirect(url)

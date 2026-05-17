@@ -96,7 +96,7 @@ export default function LoansPage() {
         />
       ) : (
         <motion.div
-          key={activeTab}
+          key={`loans-list-${activeTab}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="space-y-3"
