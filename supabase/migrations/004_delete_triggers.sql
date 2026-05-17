@@ -1,0 +1,16 @@
+-- ============================================================
+-- Migración 004 — Sin triggers adicionales.
+--
+-- La reversión de cambios al eliminar registros se maneja
+-- directamente en el código de la aplicación:
+--
+--   - Eliminar pago de préstamo → loansService.deletePayment()
+--     decrementa loans.paid_amount y revierte el status.
+--
+--   - Eliminar transacción de cuenta → transactionsService.delete()
+--     revierte el balance de wallets.balance.
+--
+-- Este enfoque garantiza consistencia sin depender de triggers
+-- adicionales en la base de datos.
+-- ============================================================
+
