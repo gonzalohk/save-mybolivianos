@@ -20,13 +20,20 @@ export const useAuthStore = create<AuthState>((set) => ({
   isLoading: true,
 
   initialize: async () => {
-    const supabase = createClient()
-    const { data: { session } } = await supabase.auth.getSession()
-    set({ session, user: session?.user ?? null, isLoading: false })
+    try {
+      const supabase = createClient()
+      const { data: { session } } = await supabase.auth.getSession()
+      set({ session, user: session?.user ?? null, isLoading: false })
 
-    supabase.auth.onAuthStateChange((_event, session) => {
-      set({ session, user: session?.user ?? null })
-    })
+      supabase.auth.onAuthStateChange((event, session) => {
+        set({ session, user: session?.user ?? null })
+        if (event === 'SIGNED_OUT') {
+          window.location.href = '/login'
+        }
+      })
+    } catch {
+      set({ user: null, session: null, isLoading: false })
+    }
   },
 
   signIn: async (email, password) => {
