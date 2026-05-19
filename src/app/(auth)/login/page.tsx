@@ -40,7 +40,7 @@ export default function LoginPage() {
       >
         {/* Logo */}
         <div className="text-center mb-10">
-          <Image src="/logo.png" alt="Logo" width={120} height={120} className="mx-auto mb-4" />
+          <Image src="/logo.png" alt="Logo" width={64} height={64} className="mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-white mb-1">SaveMyBolivianos</h1>
           <p className="text-muted text-sm">Tu finanzas personales, ordenadas</p>
         </div>

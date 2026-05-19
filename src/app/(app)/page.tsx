@@ -30,7 +30,7 @@ export default function DashboardPage() {
       {/* Header */}
       <div className="relative flex items-center justify-center mb-6">
         <div className="text-center">
-          <Image src="/logo.png" alt="Logo" width={100} height={100} className="mx-auto mb-3" />
+          <Image src="/logo.png" alt="Logo" width={56} height={56} className="mx-auto mb-3" />
           <p className="text-muted text-[13px]">Hola, {firstName} 👋</p>
           <h1 className="text-[24px] font-bold text-white leading-tight mt-0.5">Mi resumen</h1>
         </div>
