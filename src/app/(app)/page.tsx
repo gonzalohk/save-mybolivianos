@@ -8,6 +8,7 @@ import { QuickStats } from '@/components/dashboard/quick-stats'
 import { ExchangeRateWidget } from '@/components/dashboard/exchange-rate-widget'
 import { RecentActivity } from '@/components/dashboard/recent-activity'
 import { AlertsPanel } from '@/components/dashboard/alerts-panel'
+import Image from 'next/image'
 import { useAlerts } from '@/hooks/use-alerts'
 import { useAuthStore } from '@/stores/auth-store'
 
@@ -29,6 +30,7 @@ export default function DashboardPage() {
       {/* Header */}
       <div className="relative flex items-center justify-center mb-6">
         <div className="text-center">
+          <Image src="/logo.png" alt="Logo" width={100} height={100} className="mx-auto mb-3" />
           <p className="text-muted text-[13px]">Hola, {firstName} 👋</p>
           <h1 className="text-[24px] font-bold text-white leading-tight mt-0.5">Mi resumen</h1>
         </div>

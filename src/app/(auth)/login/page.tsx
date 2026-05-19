@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Mail, Lock, Eye, EyeOff, AlertCircle } from 'lucide-react'
 import { useAuthStore } from '@/stores/auth-store'
 import { Button } from '@/components/ui/button'
@@ -39,9 +40,7 @@ export default function LoginPage() {
       >
         {/* Logo */}
         <div className="text-center mb-10">
-          <div className="w-16 h-16 gradient-brand rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl shadow-brand/30">
-            <span className="text-3xl">🇧🇴</span>
-          </div>
+          <Image src="/logo.png" alt="Logo" width={120} height={120} className="mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-white mb-1">SaveMyBolivianos</h1>
           <p className="text-muted text-sm">Tu finanzas personales, ordenadas</p>
         </div>
